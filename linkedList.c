@@ -159,32 +159,25 @@ Status IsLoopList(LinkedList L) {
  *	@return		 : LNode(the new head node)
  *  @notice      : choose to finish
  */
-LNode* ReverseEvenList(LinkedList *L) {// 只能奇数个结点时有效，原因想不懂。 
-    LinkedList front, rear, temp;
-    int i = 0;
-    front = (*L)->next;
-    rear = front->next;
-    temp = front;
-    (*L)->next = rear;// 头指针指向第二个结点 
-    if (rear->next == NULL) {// 如果只有两个结点只需要互换位置即可 
-    	rear->next = front;
-    	front->next = NULL;
-    	return *L; 
-	}
-    // temp存储偶数结点的位置能够作为中间变量完成奇偶结点的互换 
-    while (front->next != NULL && front != NULL) {
-		rear = front->next;
-		if(i) {
-    	temp->next = rear;
-    	temp = front;
-        }
-    	i++;
-    	front->next = rear->next;
-    	rear->next = front;
-    	front = front->next;
-	}
-    return *L;
-}
+LNode* ReverseEvenList(LinkedList *L) { 
+    LinkedList p,q,t;
+    p=(*L)->next;
+    q=p->next;
+    t=q->next;
+    p->next=t;
+    q->next=p;
+    (*L)->next=q;
+    while(t!=NULL&&t->next!=NULL){
+       q=t->next;
+       t=q->next;
+       p->next->next=t;
+       q->next=p->next;
+       p->next=q;
+       p=q->next;
+    }
+    return (*L);
+} 
+
 
 /**
  *  @name        : LNode* FindMidNode(LinkedList *L)
