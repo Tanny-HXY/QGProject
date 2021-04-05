@@ -28,7 +28,11 @@ Status getTopStack(SqStack *s,ElemType *e) {
 Status clearStack(SqStack *s) {
 	if (isEmptyStack(s))
 	return ERROR;
+<<<<<<< HEAD
 	s->size = s->top + s->size + 1;// 将栈的空间恢复至最大 
+=======
+	s->size = size;// 将栈的空间恢复至最大 
+>>>>>>> d9faf681d231405c6aafd7e1436ba74aea48a39b
 	s->top = -1;
 	return SUCCESS;
 }
