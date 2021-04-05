@@ -4,7 +4,6 @@
 #include "menu.h"
 
 
-int size;
 int main(void) {
 	SqStack s;
 	int count = 0;
