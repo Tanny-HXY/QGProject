@@ -12,9 +12,12 @@ int main(void) {
 	    printf("计算器初始化失败！");
 	    exit(1);
 	}
-	printf("请输入计算式:\n");
-	scanf("%s", str);
-	result = Calculate(&num, &opt, str);
-	printf("结果为:%d\n", result);
-	return 0;
+	while (1) {
+		printf("请输入计算式(输入q退出):\n");
+	    scanf("%s", str);
+	    if (str[0] == 'q')
+		return 0; 
+	    result = Calculate(&num, &opt, str);
+	    printf("结果为:%d\n", result);
+	} 
 }
