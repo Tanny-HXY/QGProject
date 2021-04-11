@@ -166,12 +166,12 @@ void ClearLQueue(LQueue *Q) {
 	return;
 	Node *p, *q;
 	p = Q->front->next;
-	while(q) {
+	while(q) {// 释放所有节点 
 		q = p->next;
 		free(p);
 		p = q;
 	}
-	Q->rear = Q->front;
+	Q->rear = Q->front;// 头尾指针指回头结点 
 	Q->front->next = Q->rear->next = NULL;
 	Q->length = 0;
 }
@@ -193,7 +193,7 @@ Status TraverseLQueue(const LQueue *Q, void (*foo)(void *q, int type)) {
 		(*foo)(p->data, p->type);
 		p = p->next;
 		count++;
-		if (count % 5 == 0)
+		if (count % 5 == 0)// 每五个换行 
 		printf("\n");
 	}
 	return TRUE;
@@ -206,7 +206,7 @@ Status TraverseLQueue(const LQueue *Q, void (*foo)(void *q, int type)) {
  
  *  @notice      : None
  */
-void LPrint(void *q, int type) {
+void LPrint(void *q, int type) {// 根据不同的数据类型输出不同的值 
 	if (type == 1)
 	printf("%d ", *(int*)q);
 	if(type == 3)

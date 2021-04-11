@@ -9,6 +9,7 @@ void menu() {
 	printf("5.清空队列\n");
 	printf("6.检测队列长度\n");
 	printf("7.判断队列是否为空\n");
-	printf("8.遍历队列\n");
+	printf("8.判断队列是否已满\n"); 
+	printf("9.遍历队列\n");
 	printf("0.销毁链栈，结束进程\n"); 
 }

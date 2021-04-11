@@ -40,8 +40,8 @@ typedef enum
 {
     FALSE=0, TRUE=1
 } Status;
-char type;
-char datatype[MAXQUEUE];
+int type;
+int datatype[MAXQUEUE];
 /**************************************************************
  *    Prototype Declare Section
  **************************************************************/
@@ -146,7 +146,7 @@ void ClearAQueue(AQueue *Q);
  *    @return         : None
  *  @notice      : None
  */
-Status TraverseAQueue(const AQueue *Q, void (*foo)(void *q));	
+Status TraverseAQueue(const AQueue *Q, void (*foo)(void *q, int datatype));	
 
 
 
@@ -156,7 +156,7 @@ Status TraverseAQueue(const AQueue *Q, void (*foo)(void *q));
  *    @param         q ÷∏’Îq
  *  @notice      : None
  */
-void APrint(void *q);	
+void APrint(void *q, int datatype);	
 
 /**************************************************************
  *    End-Multi-Include-Prevent Section
